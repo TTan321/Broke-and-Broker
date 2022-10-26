@@ -10,6 +10,7 @@ class Portfolio(db.Model) :
     trade_id = db.Column(db.Integer, db.ForeignKey('trades.id'), nullable=False)
     buying_power_id = db.Column(db.Integer, db.ForeignKey('buying_power.id'), nullable=False)
     watchlist_id = db.Column(db.Integer, db.ForeignKey('watchlists.id'), nullable=False)
+    owner = db.relationship('User', back_populates='portfolios', cascade='all, delete')
 
     def to_dict_portfolio(self):
         return {
