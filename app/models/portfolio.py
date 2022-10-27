@@ -11,6 +11,9 @@ class Portfolio(db.Model) :
     buying_power_id = db.Column(db.Integer, db.ForeignKey('buying_power.id'), nullable=False)
     watchlist_id = db.Column(db.Integer, db.ForeignKey('watchlists.id'), nullable=False)
     owner = db.relationship('User', back_populates='portfolios', cascade='all, delete')
+    trades = db.relationship('Trade', back_populates='portfolio', cascade='all, delete')
+    buying_power = db.relationship('Buying_Power', back_populates='portfolio', cascade='all, delete')
+    watchlist = db.relationship('Watchlist', back_populates='portfolio', cascade='all, delete')
 
     def to_dict_portfolio(self):
         return {
@@ -20,4 +23,17 @@ class Portfolio(db.Model) :
             "tradeId": self.trade_id,
             "buyingPowerId": self.buying_power_id,
             "watchlistId": self.watchlist_id
+        }
+
+    def to_dict_portfolio_rel(self):
+        return {
+            "id": self.id,
+            "ownerId": self.owner_id,
+            "accountName": self.account_name,
+            "tradeId": self.trade_id,
+            "buyingPowerId": self.buying_power_id,
+            "watchlistId": self.watchlist_id,
+            "trades": [trade.to_dict_trade() for trade in self.trades],
+            "buyingPower": self.buying_power.to_dict_buying_power(),
+            "watchlist": self.watchlist.to_dict_watchlist()
         }
