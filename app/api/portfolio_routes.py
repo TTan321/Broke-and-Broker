@@ -10,9 +10,13 @@ portfolio_routes = Blueprint('portfolio', __name__)
 # Get user portfolios
 @portfolio_routes.route('/')
 def get_user_portfolios():
-    user = current_user.to_dict()
-    user_portfolios = Portfolio.query.filter(Portfolio.owner_id == user['id'])
-    return {'userPortfolios': [portfolio.to_dict_portfolio_rel() for portfolio in user_portfolios]}
+    portfolios = Portfolio.query.all()
+    return {'portfolios': [portfolio.to_dict_portfolio_rel() for portfolio in portfolios]}
+    # if current_user:
+    #     user = current_user.to_dict()
+    #     user_portfolios = Portfolio.query.filter(Portfolio.owner_id == user['id'])
+    #     return {'userPortfolios': [portfolio.to_dict_portfolio_rel() for portfolio in user_portfolios]}
+    # return {'message': 'please log in to see portfolios'}
 
 # Add new portfolio
 @portfolio_routes.route('', methods=['POST'])
@@ -21,10 +25,15 @@ def add_portfolio():
     form = PortfolioForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        data = PortfolioForm(
-            ownerId = user['id'],
-            accountName = form.data['accountName']
+        data = Portfolio(
+            owner_id = user['id'],
+            account_name = form.data['accountName']
         )
+        print('------------------')
+        print('------------------')
+        print('THIS IS FORM DATA ACCOUNT NAME', form.data['accountName'])
+        print('------------------')
+        print('------------------')
         db.session.add(data)
         db.session.commit()
         return {"portfolio": data.to_dict_portfolio_rel()}

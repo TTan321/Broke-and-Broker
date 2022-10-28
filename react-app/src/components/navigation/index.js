@@ -1,8 +1,13 @@
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
+import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
 
 function Navigation() {
     const history = useHistory();
+    const user = useSelector(state => state.session)
+    const userArr = Object.values(user)
+
     return (
         <div id='navigation'>
             <div className="left">
@@ -11,12 +16,21 @@ function Navigation() {
                 </div>
             </div>
             <div className="right">
-                <div onClick={() => history.push('/login')}>
-                    Log In
-                </div>
-                <div onClick={() => history.push('/sign-up')}>
-                    Sign Up
-                </div>
+                {userArr[0] === null && (
+                    <>
+                        <div onClick={() => history.push('/login')}>
+                            Log In
+                        </div>
+                        <div onClick={() => history.push('/sign-up')}>
+                            Sign Up
+                        </div>
+                    </>
+                )}
+                {
+                    userArr[0] !== null && (
+                        <LogoutButton />
+                    )
+                }
             </div>
         </div>
     )

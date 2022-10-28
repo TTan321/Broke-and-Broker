@@ -1,12 +1,20 @@
 import { useHistory } from "react-router-dom"
 import { useSelector } from "react-redux";
 import Navigation from "../navigation"
+import LoggedInHomepage from "./UserLoggedInHomepage";
 
 
 function Homepage() {
     const history = useHistory();
     const user = useSelector(state => state.session)
-    console.log('USER', user)
+    const portfolios = useSelector(state => state.portfolioState)
+    const userArr = Object.values(user)
+
+    if (userArr[0] !== null) {
+        return (
+            <LoggedInHomepage portfolios={portfolios} />
+        )
+    }
     return (
         <div>
             <Navigation />
