@@ -22,7 +22,7 @@ def get_portfolios_watchlist(portfolio_id):
 
 
 # delete an asset in watchlist
-@watchlist_routes.route('<int:watchlist_id', methods=['DELETE'])
+@watchlist_routes.route('<int:watchlist_id>', methods=['DELETE'])
 def delete_watchlist_asset(watchlist_id):
     selected_asset = Watchlist.query.get(watchlist_id)
     if selected_asset:

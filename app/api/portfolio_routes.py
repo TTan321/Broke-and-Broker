@@ -36,8 +36,8 @@ def add_portfolio():
     return form.errors
 
 # edit a portfolio
-@portfolio_routes.route('<int:portfolio_id', methods=['PUT'])
-def add_portfolio(portfolio_id):
+@portfolio_routes.route('<int:portfolio_id>', methods=['PUT'])
+def edit_portfolio(portfolio_id):
     form = PortfolioForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -48,8 +48,8 @@ def add_portfolio(portfolio_id):
     return form.errors
 
 # delete a portfolio
-@portfolio_routes.route('<int:portfolio_id', methods=['DELETE'])
-def add_portfolio(portfolio_id):
+@portfolio_routes.route('<int:portfolio_id>', methods=['DELETE'])
+def delete_portfolio(portfolio_id):
     selected_portfolio = portfolio.query.get(portfolio_id)
     if selected_portfolio:
         db.session.delete(selected_portfolio)

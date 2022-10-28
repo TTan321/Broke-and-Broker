@@ -17,7 +17,7 @@ def get_portfolio_trades(portfolio_id):
 
 # add a trade
 @trade_routes.route('/<int:portfolio_id>', methods=['POST'])
-def get_portfolio_trades(portfolio_id):
+def add_trades(portfolio_id):
     form = Trades_Form()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():

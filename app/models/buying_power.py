@@ -5,7 +5,7 @@ class Buying_Power(db.Model):
     __tablename__ = 'buying_powers'
 
     id = db.Column(db.Integer, nullable=False, primary_key=True)
-    portfolio_id = db.Column(db.integer, db.ForeignKey('portfolios.id'), nullable=False)
+    portfolio_id = db.Column(db.Integer, db.ForeignKey('portfolios.id'), nullable=False)
     transaction_id = db.Column(db.Integer, db.ForeignKey('transactions.id'), nullable=False)
     trade_id = db.Column(db.Integer, db.ForeignKey('trades.id'), nullable=False)
     amount = db.Column(db.Float, default=0)
