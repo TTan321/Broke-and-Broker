@@ -1,0 +1,11 @@
+#navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    font-size: 20px;
+}
+
+.right {
+    display: flex;
+    gap: 5px
+}
