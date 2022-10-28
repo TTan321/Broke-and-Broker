@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 
-from ..models import db, Transcaction
+from ..models import db, Transaction
 from ..forms import TransactionsForm
 
 transaction_routes = Blueprint('transaction', __name__)
@@ -8,7 +8,7 @@ transaction_routes = Blueprint('transaction', __name__)
 # get a portfolio's transactions
 @transaction_routes.route('<int:portfolio_id>')
 def get_portfolio_transactions(portfolio_id):
-    portfolio_transactions = Transcaction.query.filter(Transcaction.portfolio_id == portfolio_id)
+    portfolio_transactions = Transaction.query.filter(Transaction.portfolio_id == portfolio_id)
     return {'portfolio_transactions': [transaction.to_dict_transactions_rel() for transaction in portfolio_transactions]}
 
 # add a transaction to the portfolio
@@ -17,7 +17,7 @@ def add_transaction(portfolio_id):
     form = TransactionsForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        data = Transcaction(
+        data = Transaction(
             portfolioId = portfolio_id,
             buyingPowerId = form.data['buyingPowerId'],
             amount = form.data['amount'],

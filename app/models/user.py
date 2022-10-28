@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     lastname = db.Column(db.String(40), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    portfolios = db.relationship('Porfolio', back_populates='owner', cascade='all, delete')
+    portfolios = db.relationship('Portfolio', back_populates='owner', cascade='all, delete')
 
     @property
     def password(self):
@@ -41,5 +41,5 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'firstname': self.firstname,
             'lastname': self.lastname,
-            'portfolios': [portfolio.to_dict_portfolio() for portfolio in self.portfolios]
+            'portfolios': self.portfolios.to_dict_portfolio()
         }

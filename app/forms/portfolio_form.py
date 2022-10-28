@@ -1,11 +1,11 @@
+from wsgiref.validate import validator
 from flask_wtf import FlaskForm
-from wtforms import StringField,IntegerField,SubmitField
+from wtforms import StringField,FloatField
 from wtforms.validators import DataRequired
 
 class PortfolioForm(FlaskForm):
-    ownerId = IntegerField('ownerId')
     accountName = StringField('accountName', validators=[DataRequired()])
-    tradeId = IntegerField('tradeId')
-    buyingPowerId = IntegerField('buyingPowerId')
-    watchlistId = IntegerField('watchlistId')
-    submit = SubmitField('submit')
+
+class EditPortfolioForm(FlaskForm):
+    accountName = StringField('accountName', validators=[DataRequired()])
+    buyingPower = FloatField('buyingPower', validators=[DataRequired()])

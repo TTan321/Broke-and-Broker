@@ -1,6 +1,6 @@
 from crypt import methods
 from flask import Blueprint, request
-from ..forms import Trades_Form
+from ..forms import TradeForm
 from ..models import db, Trade
 from flask_login import current_user
 
@@ -18,7 +18,7 @@ def get_portfolio_trades(portfolio_id):
 # add a trade
 @trade_routes.route('/<int:portfolio_id>', methods=['POST'])
 def add_trades(portfolio_id):
-    form = Trades_Form()
+    form = TradeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = Trade()

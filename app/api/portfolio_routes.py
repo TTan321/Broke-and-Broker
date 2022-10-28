@@ -1,8 +1,8 @@
 from flask import Blueprint, request
 
 from app.models import portfolio
-from ..forms import PortfolioForm, BuyingPowerForm
-from ..models import db, Portfolio, Buying_Power
+from ..forms import PortfolioForm
+from ..models import db, Portfolio
 from flask_login import current_user
 
 portfolio_routes = Blueprint('portfolio', __name__)
@@ -26,11 +26,6 @@ def add_portfolio():
             accountName = form.data['accountName']
         )
         db.session.add(data)
-        db.session.commit()
-        buying_power_data = Buying_Power(
-            portfolioId = data.to_dict_portfolio()['id']
-        )
-        db.session.add(buying_power_data)
         db.session.commit()
         return {"portfolio": data.to_dict_portfolio_rel()}
     return form.errors
