@@ -3,7 +3,7 @@ from .db import db
 class Transcaction(db.Model):
     __tablename__ = 'transactions'
 
-    id = db.Column(db.Integer, nullable=False, primaryKey=True)
+    id = db.Column(db.Integer, nullable=False, primary_key=True)
     portfolio_id = db.Column(db.Integer, db.ForeignKey('portfolio.id'), nullable=False)
     buying_power_id = db.Column(db.Integer, db.ForeignKey('buying_power.id'), nullable=False)
     amount = db.Column(db.Float, nullable=False)

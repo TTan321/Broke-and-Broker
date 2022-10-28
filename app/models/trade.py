@@ -4,7 +4,7 @@ from datetime import date
 class Trade(db.Model):
     __tablename__ = 'trades'
 
-    id = db.Column(db.Integer, nullable=False, primaryKey=True)
+    id = db.Column(db.Integer, nullable=False, primary_key=True)
     portfolioId = db.Column(db.Integer, db.ForeignKey('portfolios.id'), nullable=False)
     asset_id = db.Column(db.Integer, db.ForeignKey('assets.id'), nullable=False)
     asset_quantity = db.Column(db.Integer, nullable=False)

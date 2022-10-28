@@ -5,7 +5,7 @@ from datetime import date
 class Asset(db.Model):
     __tablename__ = 'assets'
 
-    id = db.Column(db.Integer, nullable=False, primaryKey=True)
+    id = db.Column(db.Integer, nullable=False, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     ticker = db.Column(db.String(5), nullable=False)
     value = db.Column(db.Float, nullable=False)
