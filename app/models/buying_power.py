@@ -1,3 +1,4 @@
+from email.policy import default
 from .db import db
 
 class Buying_Power(db.Model):
@@ -7,7 +8,7 @@ class Buying_Power(db.Model):
     portfolio_id = db.Column(db.integer, db.ForeignKey('portfolios.id'), nullable=False)
     transaction_id = db.Column(db.Integer, db.ForeignKey('transactions.id'), nullable=False)
     trade_id = db.Column(db.Integer, db.ForeignKey('trades.id'), nullable=False)
-    amount = db.Column(db.Float, nullable=False)
+    amount = db.Column(db.Float, default=0)
     portfolio = db.relationship('Portfolio', back_populates='buying_power', cascade='all, delete')
     trades = db.relationship('Trade', back_populates='buying_power', cascade='all, delete')
     transactions = db.relationship('Transaction', back_populates='buying_power', cascade='all, delete')
