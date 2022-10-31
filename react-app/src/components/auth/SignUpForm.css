@@ -1,16 +1,17 @@
 #SignUpFormPage {
-    height: 1080px;
-    width: 1920px;
-    border: 2px solid blue;
     display: flex;
+    height: 100%;
+    width: 100%;
 }
 
 #SignUpFormImg {
+    height: 100%vh;
+    width: 50%vh;
+}
+
+#rocketImage {
     height: 100%;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
 }
 
 #SignUpForm {
@@ -20,4 +21,52 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+}
+
+#signUpHeader {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#namesContainer {
+    display: flex;
+    column-gap: 22px;
+}
+
+.signUpInputNames {
+    height: 28px;
+    width: 378px;
+    padding: 16px 12px;
+    margin-bottom: 20px;
+}
+
+.signUpFormInputs {
+    height: 28px;
+    width: 806px;
+    padding: 16px 12px;
+    margin-bottom: 20px;
+}
+
+#signUpButton {
+    height: 44px;
+    width: 132px;
+    color: white;
+    background-color: black;
+    border-radius: 25px;
+    font-weight: bolder;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+#loginText {
+    padding-top: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+#loginRedirect {
+    text-decoration: underline;
+    font-weight: bolder;
+    cursor: pointer;
 }
