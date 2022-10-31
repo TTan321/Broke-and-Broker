@@ -18,10 +18,10 @@ function Navigation() {
             <div className="right">
                 {userArr[0] === null && (
                     <>
-                        <div onClick={() => history.push('/login')}>
+                        <div id='navLogin' onClick={() => history.push('/login')}>
                             Log In
                         </div>
-                        <div onClick={() => history.push('/sign-up')}>
+                        <div id='navSignUp' onClick={() => history.push('/sign-up')}>
                             Sign Up
                         </div>
                     </>
