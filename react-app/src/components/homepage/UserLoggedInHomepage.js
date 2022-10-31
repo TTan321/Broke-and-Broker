@@ -15,7 +15,7 @@ function LoggedInHomepage({ portfolios }) {
     console.log('port array: ', userPortfoliosArr)
 
     useEffect(() => {
-        ports = dispatch(loadUserPortfolios())
+        dispatch(loadUserPortfolios())
     }, [dispatch])
 
 
@@ -24,13 +24,6 @@ function LoggedInHomepage({ portfolios }) {
         await dispatch(addAPortfolio(portfolioName))
         setPortfolioName('')
         await dispatch(loadUserPortfolios())
-    }
-
-    let ports;
-    const loadPorts = async () => {
-        ports = await loadUserPortfolios()
-        ports = Object.values(ports)
-        console.log('loadports ports: ', ports)
     }
 
     return (
@@ -50,10 +43,11 @@ function LoggedInHomepage({ portfolios }) {
                 </form>
             </div>
             <div>
-                {loadPorts() && ports.map(portfolio => (
+                Your Portfolios
+                {userPortfoliosArr.map(portfolio => (
                     <div key={portfolio.id}>
-                        <div>Portfolio</div>
                         {portfolio.accountName}
+                        {portfolio.buyingPower}
                     </div>
                 ))}
             </div>

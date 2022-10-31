@@ -22,8 +22,7 @@ export const loadUserPortfolios = () => async dispatch => {
     const response = await fetch('/api/portfolios/')
     if (response.ok) {
         const data = await response.json();
-        dispatch(getUserPortfolios(data));
-        console.log('data inside store: ', data)
+        dispatch(getUserPortfolios(data.portfolios));
         return data
     }
 }
@@ -44,7 +43,7 @@ export const addAPortfolio = (portfolioName) => async dispatch => {
 }
 
 const portfolioReducer = (state = {}, action) => {
-    switch (action.types) {
+    switch (action.type) {
         case GET_USER_PORTFOLIOS:
             const allUserPortfolios = {}
             action.portfolios.forEach(portfolio => {
