@@ -1,12 +1,12 @@
 #SignUpFormPage {
     display: flex;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 200vh;
 }
 
 #SignUpFormImg {
-    height: 100%vh;
-    width: 50%vh;
+    height: 100%;
+    width: 50%;
 }
 
 #rocketImage {
@@ -15,8 +15,8 @@
 }
 
 #SignUpForm {
-    height: 100%;
-    width: 50%;
+    height: 100%vh;
+    width: 50%vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,19 +31,19 @@
 
 #namesContainer {
     display: flex;
-    column-gap: 22px;
+    column-gap: 13px;
 }
 
 .signUpInputNames {
     height: 28px;
-    width: 378px;
+    width: 278px;
     padding: 16px 12px;
     margin-bottom: 20px;
 }
 
 .signUpFormInputs {
     height: 28px;
-    width: 806px;
+    width: 597px;
     padding: 16px 12px;
     margin-bottom: 20px;
 }
