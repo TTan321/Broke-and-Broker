@@ -21,6 +21,11 @@ const LoginForm = () => {
     }
   };
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    await dispatch(login('demo@aa.io', 'password'));
+  };
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -65,8 +70,9 @@ const LoginForm = () => {
               value={password}
               onChange={updatePassword}
             />
-            <button id='loginButton' type='submit'>Log In</button>
-            <p id='signUpText'>Not on Moon Rocket? <span id='signUpRedirect' onClick={() => history.push('/sign-up')}>Create an account</span></p>
+            <button id='loginButton' type='submit'>Log In</button><br />
+            <button id='loginButton' onClick={demoLogin}>Demo User</button>
+            <p id='signUpText'>Don't have an account? <span id='signUpRedirect' onClick={() => history.push('/sign-up')}>Create an account</span></p>
           </div>
         </form>
       </div>
