@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Navigation from "../navigation"
 import LoggedInHomepage from "./UserLoggedInHomepage";
 import { loadUserPortfolios } from '../../store/portfolio'
+import './Index.css'
 
 
 function Homepage() {
@@ -23,11 +24,15 @@ function Homepage() {
         )
     }
     return (
-        <div>
+        <div id='homepageContainer'>
             <Navigation />
-            IMG
-            Button redirects to sign up form page
-            <button onClick={() => history.push('/sign-up')}>Get Started</button>
+            <div id='imgContainer'>
+                <img id='homepageImg' src="https://images.pexels.com/photos/41162/moon-landing-apollo-11-nasa-buzz-aldrin-41162.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+            </div>
+            <div id='textAndButtonContainer'>
+                <p>Investing is simple here</p>
+                <button id='getStartedButton' onClick={() => history.push('/sign-up')}>Get Started</button>
+            </div>
         </div>
     )
 }
