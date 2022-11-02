@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
+import ProfileButton from './ProfileButton';
 
 function Navigation() {
     const history = useHistory();
@@ -28,7 +28,7 @@ function Navigation() {
                 )}
                 {
                     userArr[0] !== null && (
-                        <LogoutButton />
+                        <ProfileButton user={user} />
                     )
                 }
             </div>

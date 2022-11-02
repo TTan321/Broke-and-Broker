@@ -1,11 +1,43 @@
-#headerStocks {
+#portPage {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#headerStocks {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+#stockLabels {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+#Name {
+    width: 38%;
+    padding-left: 10px;
+}
+
+#Symbol {
+    width: 20%
+}
+
+#Price {
+    width: 20%
+}
+
+#Today {
+    width: 20%
 }
 
 .stockContainer {
     border: 1px solid black;
-    height: 80px;
-    width: 140px;
+    height: 50px;
+    width: 550px;
     display: flex;
     flex-direction: column;
     padding: 0 10px;
@@ -13,11 +45,33 @@
 
 .ticker {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+}
+
+#stockName {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+#stockTicker {
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.stockPrice {
+    width: 20%;
+    display: flex;
+    align-items: center;
 }
 
 .stockChangePercent {
-    margin: 0;
+    width: 20%;
+    display: flex;
+    align-items: center;
 }
 
 .stockChange {
