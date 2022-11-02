@@ -52,9 +52,9 @@ def edit_portfolio(portfolio_id):
     return form.errors
 
 # delete a portfolio
-@portfolio_routes.route('<int:portfolio_id>', methods=['DELETE'])
+@portfolio_routes.route('/<int:portfolio_id>', methods=['DELETE'])
 def delete_portfolio(portfolio_id):
-    selected_portfolio = portfolio.query.get(portfolio_id)
+    selected_portfolio = Portfolio.query.get(portfolio_id)
     if selected_portfolio:
         db.session.delete(selected_portfolio)
         db.session.commit()

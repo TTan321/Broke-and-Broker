@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import Portfolio from './components/portfolios';
 import StockDetail from './components/stocks/StockDetails';
+import ManagePortfolios from './components/portfolios/ManagerPortfolios';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path='/portfolio/manage' exact={true}>
+          <ManagePortfolios />
         </Route>
         <Route path='/portfolio/:portfolioId' exact={true}>
           <Portfolio />

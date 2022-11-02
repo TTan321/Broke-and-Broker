@@ -7,7 +7,7 @@ class Portfolio(db.Model) :
     account_name = db.Column(db.String(100), nullable=False)
     buying_power = db.Column(db.Float, default=0)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    owner = db.relationship('User', back_populates='portfolios', cascade='all, delete')
+    owner = db.relationship('User', back_populates='portfolios')
     trades = db.relationship('Trade', back_populates='portfolios', cascade='all, delete')
     transactions = db.relationship('Transaction', back_populates='portfolios', cascade='all, delete')
     watchlists = db.relationship('Watchlist', back_populates='portfolios', cascade='all, delete')

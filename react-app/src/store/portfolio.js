@@ -74,6 +74,7 @@ export const updatePortfolio = (data) => async dispatch => {
 }
 
 export const deletePortfolio = (portfolioId) => async dispatch => {
+    console.log('STORE DELETE: ', typeof portfolioId, portfolioId)
     const response = await fetch(`/api/portfolios/${portfolioId}`, {
         method: 'DELETE',
     });

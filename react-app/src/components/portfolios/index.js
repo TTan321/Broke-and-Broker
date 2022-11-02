@@ -29,7 +29,7 @@ function Portfolio() {
 
     return !!portfoliosArr.length && stock && (
         <div>
-            <Navigation />
+            <Navigation currentPortfolio={currentPortfolio} />
             <div id='portPage'>
                 <h1>{currentPortfolio.accountName}</h1>
                 <Transactions />

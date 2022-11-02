@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
-import { addAPortfolio, loadUserPortfolios } from "../../store/portfolio"
+import { loadUserPortfolios } from "../../store/portfolio"
 import Navigation from "../navigation"
 import './UserLoggedInHomepage.css'
 
@@ -13,8 +13,6 @@ function LoggedInHomepage({ user, portfolios }) {
     const userPortfoliosArr = Object.values(portfolios)
     const userPortfolios = userPortfoliosArr.filter(portfolio => portfolio.ownerId === user.user.id)
 
-    const [portfolioName, setPortfolioName] = useState('')
-
     console.log('port array: ', userPortfoliosArr)
     console.log('USER: ', user.user.id)
     console.log('userPorts: ', userPortfolios)
@@ -23,30 +21,9 @@ function LoggedInHomepage({ user, portfolios }) {
         dispatch(loadUserPortfolios())
     }, [dispatch])
 
-
-    const makeNewPortfolio = async (e) => {
-        e.preventDefault()
-        await dispatch(addAPortfolio(portfolioName))
-        setPortfolioName('')
-        await dispatch(loadUserPortfolios())
-    }
-
     return (
         <div>
-            <h1>Manage Portfolios</h1>
-            <div>
-                <form onSubmit={makeNewPortfolio}>
-                    <label htmlFor="portfolioName">Portfolio Name</label>
-                    <input
-                        name="portfolioName"
-                        type="text"
-                        value={portfolioName}
-                        onChange={(e) => setPortfolioName(e.target.value)}
-                        required
-                    />
-                    <button type="submit">Add portfolio</button>
-                </form>
-            </div>
+            <Navigation />
             <div id='portfoliosContainer'>
                 Your Portfolios
                 {userPortfolios.map(portfolio => (
@@ -56,6 +33,7 @@ function LoggedInHomepage({ user, portfolios }) {
                     </div>
                 ))}
             </div>
+            <button onClick={() => history.push('/portfolio/manage')}>Manage Portfolios</button>
         </div>
     )
 }
