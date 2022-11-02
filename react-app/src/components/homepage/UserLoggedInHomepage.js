@@ -33,7 +33,7 @@ function LoggedInHomepage({ user, portfolios }) {
 
     return (
         <div>
-            <Navigation />
+            <h1>Manage Portfolios</h1>
             <div>
                 <form onSubmit={makeNewPortfolio}>
                     <label htmlFor="portfolioName">Portfolio Name</label>
