@@ -1,26 +1,23 @@
 
 // type
-const GET_STOCKS = 'stocks/GET_SINGLE_STOCK'
+const GET_CANDLES = 'candle/GET_CANDLES'
 
 // action
-const getStocks = stocks => {
+const getCandles = candles => {
     return {
-        type: GET_STOCKS,
-        stocks
+        type: GET_CANDLES,
+        candles
     }
 }
 
 
 // thunk action
-export const loadAStock = () => async dispatch => {
-    const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false')
-    const data = await response.json()
-    dispatch(getStocks(data))
-    // const apiKey = 'cdg7p2qad3ie6d1pu4pgcdg7p2qad3ie6d1pu4q0'
-    // const aaplResponse = await fetch(`https://finnhub.io/api/v1/quote?symbol=AAPL,MSFT,GOOG&token=${apiKey}`)
-    // const aaplData = await aaplResponse.json()
-    // aaplData.ticker = 'AAPL'
-    // aaplData.name = 'Apple'
+export const getACandle = () => async dispatch => {
+    const apiKey = 'cdg7p2qad3ie6d1pu4pgcdg7p2qad3ie6d1pu4q0'
+    const aaplResponse = await fetch(`https://finnhub.io/api/v1/stock/candle?symbol=AAPL&resolution=1&from=1667300400&to=1667317652&token=${apiKey}`)
+    const aaplData = await aaplResponse.json()
+    aaplData.ticker = 'AAPL'
+    aaplData.name = 'Apple'
 
 
     // const msftResponse = await fetch(`https://finnhub.io/api/v1/quote?symbol=MSFT&token=${apiKey}`)
@@ -83,19 +80,18 @@ export const loadAStock = () => async dispatch => {
     // vData.name = 'Visa'
 
     // dispatch(getStocks([aaplData, msftData, googData, amznData, tslaData, brkbData, unhData, xomData, jnjData, vData]))
+    dispatch(getCandles(aaplData))
 }
 
-const assetReducer = (state = {}, action) => {
+const candleReducer = (state = {}, action) => {
     switch (action.type) {
-        case GET_STOCKS:
-            const stocks = {}
-            action.stocks.forEach((stock, idx) => stocks[idx + 1] = stock)
-            console.log('CRYPTOS: ', stocks)
-            return stocks
+        case GET_CANDLES:
+            const candle = { ...action.candles }
+            return candle
 
         default:
             return state
     }
 }
 
-export default assetReducer
+export default candleReducer

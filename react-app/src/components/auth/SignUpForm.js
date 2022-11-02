@@ -58,7 +58,7 @@ const SignUpForm = () => {
   return (
     <div id='SignUpFormPage'>
       <div id='SignUpFormImg'>
-        <img id='rocketImage' src='https://images.unsplash.com/photo-1636828982375-a4ec8b809e5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHJvY2tldCUyMGxhdW5jaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60' />
+        <img id='rocketImage' src='https://images.unsplash.com/photo-1636828982375-a4ec8b809e5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHJvY2tldCUyMGxhdW5jaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60' alt='' />
       </div>
       <div className='formContainer'>
         <form id='SignUpForm' onSubmit={onSignUp}>

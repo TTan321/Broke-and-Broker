@@ -41,7 +41,7 @@ const LoginForm = () => {
   return (
     <div id='loginFormPage'>
       <div id='loginFormImage'>
-        <img id='moonImage' src='https://images.unsplash.com/photo-1446941611757-91d2c3bd3d45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=802&q=80' />
+        <img id='moonImage' src='https://images.unsplash.com/photo-1446941611757-91d2c3bd3d45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=802&q=80' alt='' />
       </div>
       <div className='formContainer'>
         <form id='loginForm' onSubmit={onLogin} >

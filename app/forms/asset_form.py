@@ -5,4 +5,3 @@ from wtforms import FloatField,StringField
 class AssetsForm(FlaskForm):
     name = StringField('name of asset')
     ticker = StringField('ticker symbol of asset')
-    value = FloatField('value of asset')

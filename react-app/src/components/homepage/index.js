@@ -20,14 +20,14 @@ function Homepage() {
 
     if (userArr[0] !== null) {
         return (
-            <LoggedInHomepage portfolios={portfolios} />
+            <LoggedInHomepage user={user} portfolios={portfolios} />
         )
     }
     return (
         <div id='homepageContainer'>
             <Navigation />
             <div id='imgContainer'>
-                <img id='homepageImg' src="https://images.pexels.com/photos/41162/moon-landing-apollo-11-nasa-buzz-aldrin-41162.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+                <img id='homepageImg' src="https://images.pexels.com/photos/41162/moon-landing-apollo-11-nasa-buzz-aldrin-41162.jpeg?auto=compress&cs=tinysrgb&w=1600" alt='' />
             </div>
             <div id='textAndButtonContainer'>
                 <p>Investing is simple here</p>

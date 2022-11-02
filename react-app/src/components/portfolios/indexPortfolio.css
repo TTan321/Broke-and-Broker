@@ -1,0 +1,26 @@
+#headerStocks {
+    display: flex;
+}
+
+.stockContainer {
+    border: 1px solid black;
+    height: 80px;
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.ticker {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stockChangePercent {
+    margin: 0;
+}
+
+.stockChange {
+    margin: 0;
+    font-size: 12px;
+}

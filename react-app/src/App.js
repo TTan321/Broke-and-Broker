@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Portfolio from './components/portfolios';
+import StockDetail from './components/stocks/StockDetails';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path='/portfolio/:portfolioId' exact={true}>
           <Portfolio />
+        </Route>
+        <Route path='/stocks/:ticker' exact={true}>
+          <StockDetail />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />

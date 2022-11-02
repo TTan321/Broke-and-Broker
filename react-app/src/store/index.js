@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import portfolioReducer from './portfolio';
 import assetReducer from './finnhub';
+import candleReducer from './candles';
 
 const rootReducer = combineReducers({
   session,
   portfolioState: portfolioReducer,
-  assetState: assetReducer
+  assetState: assetReducer,
+  candleState: candleReducer
 });
 
 

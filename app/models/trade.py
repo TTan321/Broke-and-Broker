@@ -8,6 +8,7 @@ class Trade(db.Model):
     portfolio_id = db.Column(db.Integer, db.ForeignKey('portfolios.id'), nullable=False)
     asset_id = db.Column(db.Integer, db.ForeignKey('assets.id'), nullable=False)
     asset_quantity = db.Column(db.Integer, nullable=False)
+    asset_value = db.Column(db.Float, nullable=False)
     trade_value = db.Column(db.Float, nullable=False)
     type = db.Column(db.String(50), nullable=False)
     created_at = db.Column(db.Date, default = date.today())
@@ -22,6 +23,7 @@ class Trade(db.Model):
             'portfolioId': self.portfolio_id,
             'assetId':self.asset_id,
             'assetQuantity': self.asset_quantity,
+            'assetValue': self.asset_value,
             'tradeValue': self.trade_value,
             'type': self.type,
             'createdAt': self.created_at
@@ -33,6 +35,7 @@ class Trade(db.Model):
             'portfolioId': self.portfolio_id,
             'assetId':self.asset_id,
             'assetQuantity': self.asset_quantity,
+            'assetValue': self.asset_value,
             'tradeValue': self.trade_value,
             'type': self.type,
             'createdAt': self.created_at,

@@ -1,0 +1,17 @@
+#portfoliosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#portfolioList {
+    height: 40px;
+    width: 550px;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
