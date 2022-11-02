@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { addAPortfolio, deletePortfolio, loadUserPortfolios } from "../../store/portfolio"
+import Navigation from "../navigation";
+import './ManagePortfolio.css'
 
 
 
@@ -29,8 +31,9 @@ function ManagePortfolios() {
 
     return (
         <div>
-            <h1>Manage Portfolios</h1>
-            <div>
+            <Navigation />
+            <div id='managePortPage'>
+                <h1>Manage Portfolios</h1>
                 <form onSubmit={makeNewPortfolio}>
                     <label htmlFor="portfolioName">Portfolio Name</label>
                     <input
@@ -42,17 +45,17 @@ function ManagePortfolios() {
                     />
                     <button type="submit">Add portfolio</button>
                 </form>
-            </div>
-            <div id='portfoliosContainer'>
-                Your Portfolios
-                {userPortfolios.map(portfolio => (
-                    <div id='portfolioList' key={portfolio.id}>
-                        <p style={{ fontWeight: 'bold' }}>{portfolio.accountName}</p>
-                        <p>Buying Power: $<span style={{ fontWeight: 'bold' }}>{portfolio.buyingPower.toFixed(2)}</span>{" "}
-                            <button onClick={() => deletePort(portfolio.id)}>Remove</button>
-                        </p>
-                    </div>
-                ))}
+                <div id='portfoliosContainer'>
+                    Your Portfolios
+                    {userPortfolios.map(portfolio => (
+                        <div id='portfolioList' key={portfolio.id}>
+                            <p style={{ fontWeight: 'bold' }}>{portfolio.accountName}</p>
+                            <p>Buying Power: $<span style={{ fontWeight: 'bold' }}>{portfolio.buyingPower.toFixed(2)}</span>{" "}
+                                <button onClick={() => deletePort(portfolio.id)}>Remove</button>
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )
