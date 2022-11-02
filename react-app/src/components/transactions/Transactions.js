@@ -14,6 +14,7 @@ function Transactions() {
                 <input
                     type="text"
                 />
+                <button type="submit">Submit Transactions</button>
             </form>
         </div>
     )

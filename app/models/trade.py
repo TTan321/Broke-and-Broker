@@ -11,7 +11,7 @@ class Trade(db.Model):
     asset_value = db.Column(db.Float, nullable=False)
     trade_value = db.Column(db.Float, nullable=False)
     type = db.Column(db.String(50), nullable=False)
-    created_at = db.Column(db.Date, default = datetime.datetime())
+    created_at = db.Column(db.Date, default = datetime.today())
     portfolios = db.relationship('Portfolio', back_populates='trades', cascade='all, delete')
     assets = db.relationship('Asset', back_populates='trades', cascade='all, delete')
 

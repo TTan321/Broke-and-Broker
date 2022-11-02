@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 584591362704
+Revision ID: d728ff645610
 Revises: 
-Create Date: 2022-10-27 23:35:03.138655
+Create Date: 2022-11-01 21:18:28.475313
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '584591362704'
+revision = 'd728ff645610'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,8 +22,6 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=100), nullable=False),
     sa.Column('ticker', sa.String(length=5), nullable=False),
-    sa.Column('value', sa.Float(), nullable=False),
-    sa.Column('created_at', sa.Date(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('users',
@@ -50,6 +48,7 @@ def upgrade():
     sa.Column('portfolio_id', sa.Integer(), nullable=False),
     sa.Column('asset_id', sa.Integer(), nullable=False),
     sa.Column('asset_quantity', sa.Integer(), nullable=False),
+    sa.Column('asset_value', sa.Float(), nullable=False),
     sa.Column('trade_value', sa.Float(), nullable=False),
     sa.Column('type', sa.String(length=50), nullable=False),
     sa.Column('created_at', sa.Date(), nullable=True),
@@ -62,6 +61,7 @@ def upgrade():
     sa.Column('portfolio_id', sa.Integer(), nullable=False),
     sa.Column('amount', sa.Float(), nullable=False),
     sa.Column('type', sa.String(length=50), nullable=False),
+    sa.Column('created_at', sa.Date(), nullable=True),
     sa.ForeignKeyConstraint(['portfolio_id'], ['portfolios.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
