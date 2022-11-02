@@ -4,12 +4,14 @@ import session from './session'
 import portfolioReducer from './portfolio';
 import assetReducer from './finnhub';
 import candleReducer from './candles';
+import chartReducer from './chart';
 
 const rootReducer = combineReducers({
   session,
   portfolioState: portfolioReducer,
   assetState: assetReducer,
-  candleState: candleReducer
+  candleState: candleReducer,
+  chartState: chartReducer
 });
 
 

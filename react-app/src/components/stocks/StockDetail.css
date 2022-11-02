@@ -4,3 +4,13 @@
     align-items: center;
     margin-top: 30px;
 }
+
+#assetDetailContainer {
+    border: 1px solid black;
+    height: 500px;
+    width: 700px;
+}
+
+#assetInfoContainer {
+    border: 1px solid yellow;
+}
